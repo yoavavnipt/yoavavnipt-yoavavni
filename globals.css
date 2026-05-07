@@ -1,0 +1,60 @@
+'use client'
+export default function DashboardPage() {
+  return (
+    <div style={{ padding: '24px' }}>
+      <div style={{
+        background: 'linear-gradient(135deg, #1a3a5c, #1e4a7a)',
+        borderRadius: '12px', padding: '24px', color: '#fff', marginBottom: '20px'
+      }}>
+        <div style={{ fontSize: '22px', fontWeight: '800' }}>
+          שלום יואב 👋
+        </div>
+        <div style={{ fontSize: '13px', opacity: 0.75, marginTop: '4px' }}>
+          קליניקת יואב אבני · תרשיש 8, גילון
+        </div>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '12px', marginBottom: '20px' }}>
+        {[
+          { icon: '👥', label: 'מטופלים', value: '0', color: '#1e4a7a' },
+          { icon: '📅', label: 'תורים היום', value: '0', color: '#3eb8e5' },
+          { icon: '💰', label: 'הכנסה החודש', value: '₪0', color: '#0b8a5e' },
+          { icon: '⏳', label: 'ממתינים', value: '0', color: '#e8a020' },
+        ].map(s => (
+          <div key={s.label} style={{
+            background: '#fff', borderRadius: '10px', padding: '16px',
+            borderRight: `3px solid ${s.color}`, boxShadow: '0 1px 4px rgba(0,0,0,0.07)'
+          }}>
+            <div style={{ fontSize: '24px', marginBottom: '6px' }}>{s.icon}</div>
+            <div style={{ fontSize: '20px', fontWeight: '800' }}>{s.value}</div>
+            <div style={{ fontSize: '11px', color: '#64748b', marginTop: '3px' }}>{s.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{
+        background: '#fff', borderRadius: '10px', padding: '16px',
+        boxShadow: '0 1px 4px rgba(0,0,0,0.07)'
+      }}>
+        <div style={{ fontWeight: '700', marginBottom: '12px' }}>פעולות מהירות</div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '8px' }}>
+          {[
+            { icon: '👤', label: 'מטופל חדש', href: '/patients/new' },
+            { icon: '📅', label: 'תור חדש', href: '/calendar' },
+            { icon: '📋', label: 'SOAP חדש', href: '/records' },
+            { icon: '💳', label: 'שלח תשלום', href: '/billing' },
+          ].map(a => (
+            <a key={a.label} href={a.href} style={{
+              background: '#f8fafc', borderRadius: '8px', padding: '12px',
+              textAlign: 'center', textDecoration: 'none', color: '#1e293b',
+              border: '1px solid #e2e8f0', display: 'block'
+            }}>
+              <div style={{ fontSize: '22px', marginBottom: '4px' }}>{a.icon}</div>
+              <div style={{ fontSize: '12px', fontWeight: '600' }}>{a.label}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
